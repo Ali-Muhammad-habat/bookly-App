@@ -1,24 +1,6 @@
-class GoogleBooksResponse {
-  final String kind;
-  final int totalItems;
-  final List<Volume> items;
+import '../../domain/entity/book_entity.dart';
 
-  GoogleBooksResponse({
-    required this.kind,
-    required this.totalItems,
-    required this.items,
-  });
-
-  factory GoogleBooksResponse.fromJson(Map<String, dynamic> json) {
-    return GoogleBooksResponse(
-      kind: json['kind'],
-      totalItems: json['totalItems'],
-      items: (json['items'] as List).map((item) => Volume.fromJson(item)).toList(),
-    );
-  }
-}
-
-class Volume {
+class BookModel extends BookEntity {
   final String kind;
   final String id;
   final String etag;
@@ -28,7 +10,7 @@ class Volume {
   final AccessInfo accessInfo;
   final SearchInfo searchInfo;
 
-  Volume({
+  BookModel({
     required this.kind,
     required this.id,
     required this.etag,
@@ -37,10 +19,11 @@ class Volume {
     required this.saleInfo,
     required this.accessInfo,
     required this.searchInfo,
-  });
+  }) : super(bookId: id, image: volumeInfo.imageLinks.thumbnail ?? "", title: volumeInfo.title, 
+price: null, aotherName: volumeInfo.authors.first, rating: volumeInfo.maturityRating);
 
-  factory Volume.fromJson(Map<String, dynamic> json) {
-    return Volume(
+  factory BookModel.fromJson(Map<String, dynamic> json) {
+    return BookModel(
       kind: json['kind'],
       id: json['id'],
       etag: json['etag'],
@@ -64,7 +47,7 @@ class VolumeInfo {
   final int pageCount;
   final String printType;
   final List<String> categories;
-  final String maturityRating;
+  final num maturityRating;
   final bool allowAnonLogging;
   final String contentVersion;
   final PanelizationSummary panelizationSummary;
