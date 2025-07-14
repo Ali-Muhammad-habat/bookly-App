@@ -1,14 +1,15 @@
 
+import 'package:bookly_app/Features/home/domain/entity/book_entity.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'Features/Splash/presentation/views/splash_view.dart';
-
-void main() {
+import 'package:hive/hive.dart';
+void main() async {
+     Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox(kFeaturedBooks);
   runApp(const Bookly());
+
 }
 
 class Bookly extends StatelessWidget {
