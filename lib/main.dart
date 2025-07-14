@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 void main() async {
      Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(kFeaturedBooks);
-  await Hive.openBox(kNewestBooks);
+  await Hive.openBox<BookEntity>(kFeaturedBooks);
+  await Hive.openBox<BookEntity>(kNewestBooks);
   runApp(const Bookly());
   
 
