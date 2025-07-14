@@ -8,6 +8,7 @@ import 'package:hive/hive.dart';
 void main() async {
      Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox(kFeaturedBooks);
+  await Hive.openBox(kNewestBooks);
   runApp(const Bookly());
   
 

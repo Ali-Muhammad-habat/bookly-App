@@ -23,6 +23,8 @@ abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchNewestBook() async {
     var data= await apiService.get(endPoint: "volumes?q=programming&Filtering=free-ebooks&sorting=newest");
   List<BookEntity> books = getBooksList(data);
+   SaveDataBooks(books, kNewestBooks);
+
  return books;
   }
 

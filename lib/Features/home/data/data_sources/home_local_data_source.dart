@@ -16,8 +16,8 @@ return box.values.toList();
  
   @override
   List<BookEntity> fetchNewestBook() {
-    // TODO: implement fetchNewestBook
-    throw UnimplementedError();
+var box=Hive.box<BookEntity>(kNewestBooks);
+return box.values.toList();
   }
 
  }
