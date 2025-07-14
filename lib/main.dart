@@ -9,6 +9,7 @@ void main() async {
      Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox(kFeaturedBooks);
   runApp(const Bookly());
+  
 
 }
 
