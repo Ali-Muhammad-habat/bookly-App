@@ -2,13 +2,12 @@
 
 import 'package:bookly_app/Features/home/domain/entity/book_entity.dart';
 
-abstract class FeaturedBookState  {
-}
-
+abstract class FeaturedBookState  {}
 class FeaturedBookInitial extends FeaturedBookState {}
 class FeaturedBookLoading extends FeaturedBookState {}
 class FeaturedBookSuccess extends FeaturedBookState {
-  List<BookEntity> featuredBook=[];
+    List<BookEntity> featuredBook=[];
+   FeaturedBookSuccess({required this.featuredBook}); 
 }
 class FeaturedBookFailue extends FeaturedBookState {
   final String errorMessage;
