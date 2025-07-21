@@ -7,7 +7,7 @@ List<BookEntity> fetchFeaturedBook();
  List<BookEntity> fetchNewestBook();
 
  }
- class HomeRemoteDataSourceImpl extends HomeLocalDataSource{
+ class HomeLocaDataSourceImpl extends HomeLocalDataSource{
   @override
   List<BookEntity> fetchFeaturedBook() {
    var box= Hive.box<BookEntity>(kFeaturedBooks);
